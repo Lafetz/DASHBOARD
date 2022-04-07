@@ -1,55 +1,64 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap");
 :root {
-  margin: 0px;
-  padding: 0px;
   --main-bg-color: #7dd3fc;
   --nav-color: #111;
   --user-color: #0f766e;
   --main-header: #ecfeff;
-  --search-main: #e2e8f0;
+  --search-main: #e0f2fe;
 }
 * {
   margin: 0px;
   padding: 0px;
   font-family: "roboto", sans-serif;
 }
+a {
+  text-decoration: none;
+  color: #111;
+}
 html,
 body {
   height: 100%;
+  font-family: "roboto", sans-serif;
 }
 img {
   vertical-align: text-bottom;
 }
 .container {
   height: 100%;
-
   display: grid;
   grid-template: minmax(190px, 1fr) 4fr/1fr 5fr;
 }
 
 .header {
-  padding-right: 20px;
+  padding: 20px 20px 0px 20px;
   grid-area: 1/2/2/3;
   display: grid;
   grid-template-columns: 5fr 2fr;
   grid-template-rows: 1fr 1fr;
   align-items: center;
   background-color: #ecfeff;
+  gap: 15px;
+
+  position: relative;
+  z-index: 10;
+  box-shadow: 0px 1px 10px grey;
+  clip-path: polygon(0 0, 100% 0, 100% 200%, 0 200%);
 }
-.header > * {
-  padding: 0px 0px 0px 0px;
-}
+
 .right-search img {
   height: 1.8rem;
 }
 img.image {
   height: 3rem;
-  margin-bottom: -3px;
+
   width: 3rem;
   border-radius: 100%;
 }
 .search {
   padding-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 input {
   width: 75%;
@@ -67,6 +76,7 @@ input {
   font-size: 1.5rem;
   font-weight: 500;
   padding-left: 20px;
+  align-items: center;
 }
 .bottom-left img {
   height: 5rem;
@@ -76,15 +86,17 @@ input {
 }
 .bottom-left {
   display: grid;
-  grid-template: max-content max-content / max-content max-content;
+  grid-template: auto auto / max-content max-content;
   column-gap: 15px;
-
   font-weight: 500;
   margin-bottom: 20px;
   padding-left: 20px;
 }
 .bottom-left p:nth-child(3) {
   font-size: 1.5rem;
+}
+.bottom-left p:nth-child(even) {
+  align-self: center;
 }
 .buttons {
   display: grid;
@@ -100,7 +112,10 @@ button {
   font-weight: 500;
   font-size: 1rem;
 }
-
+button:hover {
+  background-color: var(--user-color);
+  color: rgb(255, 255, 255);
+}
 .nav {
   background-color: brown;
   grid-area: 1/1/3/2;
@@ -124,11 +139,14 @@ button {
   padding-right: 10px;
 }
 
-.nav .test {
+.nav .options {
   display: flex;
   flex-direction: column;
   gap: 25px;
   color: var(--nav-color);
+}
+.options p:hover {
+  text-decoration: underline;
 }
 p img {
   padding-right: 10px;
@@ -138,8 +156,8 @@ p img {
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
-.main > * {
-  border: 1px solid black;
+h5 {
+  font-size: 1.3rem;
 }
 .left-main {
   display: grid;
@@ -151,9 +169,8 @@ p img {
   font-size: 1.2rem;
 }
 .project-list {
-  border: 1px solid black;
   display: grid;
-  padding: 20px;
+  padding: 0px 20px 20px;
   gap: 20px;
   grid-template: repeat(3, 1fr) / repeat(2, 1fr);
 }
@@ -185,6 +202,8 @@ p img {
   margin-left: 75%;
   margin-top: 10%;
   min-width: fit-content;
+  display: flex;
+  gap: 10%;
 }
 .right-main {
   display: flex;
@@ -195,13 +214,14 @@ p img {
 .upper-main {
   display: flex;
   flex-direction: column;
-  gap: 35px;
-}
-.right-main > * {
-  border: 1px solid black;
+  gap: 10px;
 }
 .upper-main h5 {
   padding: 20px 0px 0px 0px;
+}
+.underline {
+  border-bottom: 1px solid grey;
+  margin-top: 15px;
 }
 .upper-main-content {
   display: grid;
@@ -243,7 +263,7 @@ p img {
 .other-users {
   display: grid;
   grid-template: 1fr 1fr/1fr 9fr;
-  column-gap: 10px;
+  column-gap: 15px;
 }
 
 .other-users img {
@@ -251,4 +271,10 @@ p img {
   width: 3rem;
   border-radius: 100%;
   grid-row: 1/3;
+}
+.user-id {
+  font-weight: 500;
+}
+.other-users p:nth-child(odd) {
+  font-weight: 300;
 }

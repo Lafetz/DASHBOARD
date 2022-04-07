@@ -1,3 +1,3 @@
 # DASHBOARD
 
-images from jambulboy at pixlebay
+image from jambulboy at pixlebay
